@@ -84,13 +84,13 @@ export class Userprofile extends Component {
                     </div>
                 </div>
                 
-                <nav aria-label="...">
+                {!name && <nav aria-label="...">
                     <ul className="pagination float-right">
                     <button  id="prev" onClick={this.handlePage}>prev </button>
                         <button id={this.state.page} value={this.state.page} onClick={this.handlePage}>{this.state.page}</button>   
                     <button  id="next" onClick={this.handlePage}>next</button>
                     </ul>
-                </nav>
+                </nav>}
             </div>
         )
     }

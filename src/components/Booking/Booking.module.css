@@ -1,7 +1,7 @@
 .nameDiv{
     color:white;
     margin:auto;
-    padding:20px;
+    padding:5px;
 }
 
 .mainDiv{
@@ -14,4 +14,12 @@
 
 .nam{
     font-size: 25px;
+}
+
+.mainDiv img{
+    width:80%;
+    height: 80%;
+    border:5px solid gainsboro;
+    border-radius: 10px;
+    opacity:1;
 }
