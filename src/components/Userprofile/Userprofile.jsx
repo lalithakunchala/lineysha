@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchUsers } from '../../redux/action'
+import { fetchUsers, findId} from '../../redux/action'
 import styles from './Userprofile.module.css'
 
 export class Userprofile extends Component {
@@ -10,6 +11,13 @@ export class Userprofile extends Component {
             page:1,
             name:""
         }
+    }
+
+    handleChange = (e)=>{
+        console.log(e.target.value)
+        this.setState({
+            name: e.target.value
+        })
     }
 
     handlePage = (e)=>{
@@ -37,7 +45,7 @@ export class Userprofile extends Component {
         
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.fetchUsers(this.state.page)
     }
 
@@ -50,10 +58,12 @@ export class Userprofile extends Component {
             <div>
                 {/* <button onClick={()=>fetchUsers(this.state.page)}>Display Users</button> */}
                 <h1 className={styles.user}>USERS</h1>
+                <input onChange={this.handleChange} type="search" />
+                {/* <button onClick={this.handleSearch}>Search</button> */}
                 <div style={{height:"150px"}}></div>
                 <div className="container">
                     <div className={styles.displayFlex}>
-                    {users && 
+                    {users &&
 
                         users.filter(item=>{
                             
@@ -65,8 +75,9 @@ export class Userprofile extends Component {
                             }
                             
                         }).map(item =>(
-                        <div className={styles.innerFlex}>
-                        <div><img src={item.avatar} alt=""/></div>
+                        
+                        <div key ={item.id} className={styles.innerFlex}>
+                        <div id={item.id} onClick={()=>this.props.findId(item.id)}><Link to={`/${item.id}`}><img id={item.id} src={item.avatar} alt=""/></Link></div>
                         <div><h2>{item.first_name}</h2></div>
                         </div>
                     ))}
@@ -79,7 +90,7 @@ export class Userprofile extends Component {
                         <button id={this.state.page} value={this.state.page} onClick={this.handlePage}>{this.state.page}</button>   
                     <button  id="next" onClick={this.handlePage}>next</button>
                     </ul>
-                </nav>}
+                </nav>
             </div>
         )
     }
@@ -87,12 +98,14 @@ export class Userprofile extends Component {
 
 const mapStateToProps = (state) => ({
     users : state.users,
-    total_pages: state.total_pages
+    total_pages: state.total_pages,
+    id:state.id
 })
 
 const mapDispatchToProps = dispatch => {
     return{
-        fetchUsers : (n)=> dispatch(fetchUsers(n))
+        fetchUsers : (n)=> dispatch(fetchUsers(n)),
+        findId : (n) => dispatch(findId(n))
     }
 }
 

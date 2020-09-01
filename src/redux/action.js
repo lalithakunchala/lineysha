@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { USER_REQUEST, USER_SUCCESS, USER_FAILURE} from './actionTypes';
+import { USER_REQUEST, USER_SUCCESS, USER_FAILURE, FINDID} from './actionTypes';
 
 const userRequest = () => {
     console.log("fetch post request action called");
@@ -41,4 +41,11 @@ const userRequest = () => {
     }
   }
 
-export {fetchUsers} 
+const findId = (res)=>{
+  return {
+    type:FINDID,
+    payload:res
+  }
+}
+
+export {fetchUsers, findId} 

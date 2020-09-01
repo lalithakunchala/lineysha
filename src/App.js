@@ -1,11 +1,11 @@
 import React from 'react';
-import Userprofile from './components/Userprofile/Userprofile'
+import Routes from './routes/Routes'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Userprofile />
+      <Routes />
     </div>
   );
 }
