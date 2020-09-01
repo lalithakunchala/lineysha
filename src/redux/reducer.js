@@ -14,7 +14,7 @@ export default (state = initialState, { type, payload }) => {
 
             case USER_SUCCESS:
             console.log(payload)
-            return { ...state, users: payload }
+            return { ...state, users: payload.data }
 
             case USER_FAILURE:
             console.log(payload)

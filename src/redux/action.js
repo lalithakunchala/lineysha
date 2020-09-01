@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { USER_REQUEST, USER_SUCCESS, USER_FAILURE} from './actionTypes';
 
 const userRequest = () => {
@@ -27,7 +28,7 @@ const userRequest = () => {
   
   
   const fetchUsers= (n) => {
-    console.log("fetch Data called", data);
+    console.log("fetch Data called", n);
     return dispatch => {
         dispatch(userRequest())
         return  axios.get(
