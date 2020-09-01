@@ -3,11 +3,29 @@
     flex-wrap : wrap;
     align-items: center;
     justify-content: center;
+    padding-left: 250px;
 }
 
 .innerFlex{
     flex-basis:25%;
-    margin:50px;
     padding-left: 8px;
     padding-right: 8px;
+    align-items: center;
+    justify-content: center;
+    margin:40px;
+}
+
+/* .innerFlex ~ div{
+    border-radius: 10px;
+} */
+
+.innerFlex img{
+    width:100%;
+    height: 100%;
+    border:5px solid gainsboro;
+    border-radius: 10px;
+}
+
+.innerFlex h1{
+    text-align: center;
 }

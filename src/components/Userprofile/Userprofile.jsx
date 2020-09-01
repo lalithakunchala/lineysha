@@ -18,12 +18,13 @@ export class Userprofile extends Component {
         return (
             <div>
                 <button onClick={()=>fetchUsers(this.state.page)}>Display Users</button>
+                <div style={{height:"150px"}}></div>
                 <div className="container">
                     <div className={styles.displayFlex}>
                     {this.props.users && this.props.users.map(item =>(
                         <div className={styles.innerFlex}>
-                        <div>{item.first_name}</div>
                         <div><img src={item.avatar} alt=""/></div>
+                        <div><h2>{item.first_name}</h2></div>
                         </div>
                     ))}
                     </div>
