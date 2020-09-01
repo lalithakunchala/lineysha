@@ -1,0 +1,17 @@
+.nameDiv{
+    color:white;
+    margin:auto;
+    padding:20px;
+}
+
+.mainDiv{
+    justify-content: center;
+    align-items: center;
+    width:300px;
+    margin:auto;
+    padding: 30px;
+}
+
+.nam{
+    font-size: 25px;
+}
