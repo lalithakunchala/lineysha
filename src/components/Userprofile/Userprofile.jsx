@@ -8,7 +8,7 @@ export class Userprofile extends Component {
         super(props)
         this.state = {
             page:1,
-            FilterUsers : []
+            name:""
         }
     }
 
@@ -43,16 +43,28 @@ export class Userprofile extends Component {
 
     render() {
         var {users} = this.props
+        var {name} = this.state
         console.log(this.props.users)
         
         return (
             <div>
                 {/* <button onClick={()=>fetchUsers(this.state.page)}>Display Users</button> */}
-                <h1>USERS</h1>
+                <h1 className={styles.user}>USERS</h1>
                 <div style={{height:"150px"}}></div>
                 <div className="container">
                     <div className={styles.displayFlex}>
-                    {users && users.map(item =>(
+                    {users && 
+
+                        users.filter(item=>{
+                            
+                            if(this.state.name){
+                                return item.first_name==name || item.last_name==name
+                            }
+                            else{
+                                return item
+                            }
+                            
+                        }).map(item =>(
                         <div className={styles.innerFlex}>
                         <div><img src={item.avatar} alt=""/></div>
                         <div><h2>{item.first_name}</h2></div>

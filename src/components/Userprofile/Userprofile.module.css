@@ -11,7 +11,8 @@
     padding-right: 8px;
     align-items: center;
     justify-content: center;
-    margin:40px;
+    padding:20px;
+
 }
 
 /* .innerFlex ~ div{
@@ -33,4 +34,12 @@ button{
     color:blue;
     border: none;
     background-color: transparent;
+}
+
+.user{
+    font-size: 40px;
+    color:rgb(139, 107, 25);
+    background-color: rgb(240, 225, 186);
+    padding:20px;
+    margin-top: 0;
 }
