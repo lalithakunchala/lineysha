@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 const path = require('path');
-
+const mongouri = require('./config.js')
 
 const mongoose = require("mongoose");
 //local
 // mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
 //remote 
-mongoose.connect( 'mongodb+srv://mongo_lalitha:lalitha@89@mongooseappcluster.leuky.mongodb.net/mongooseAppDB', {useNewUrlParser: true});
+mongoose.connect( mongouri, {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', function(){
