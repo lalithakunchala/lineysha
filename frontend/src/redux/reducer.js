@@ -1,9 +1,10 @@
-import { USER_REQUEST, USER_SUCCESS, USER_FAILURE, FINDID} from './actionTypes'
+import { USER_REQUEST, USER_SUCCESS, USER_FAILURE, FINDID,POSTREQUEST,POSTSUCCESS,POSTFAILURE} from './actionTypes'
 
 const initialState = {
     users:[],
     error: "",
-    id:""
+    id:"",
+    dateRes:""
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -23,6 +24,9 @@ export default (state = initialState, { type, payload }) => {
 
             case FINDID:
                 return {...state, id:payload}
+
+                case POSTSUCCESS:
+                return {...state, dateRes:payload}
         
         default:
             return { ...state }
